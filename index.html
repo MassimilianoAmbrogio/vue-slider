@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider img</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.css'/>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">   
+    <!-- Vue JS   -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <!-- Inizio esercizio slider img -->
+
+    <div id="app">
+        <div class="slider"
+             @mouseenter="stopLoop"
+             @mouseleave="startLoop"
+
+             @keyup.arrow-left="prevPhoto"
+             @keyup.arrow-right="nextPhoto"
+             tabindex="0"
+        >
+            <!-- Arrow left -->
+            <div class="prev" @click="prevPhoto">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <!-- Img -->
+            <div class="images">
+                <img :src="photos[indexPhoto]" alt="photo 1">
+            </div>
+            <!-- Arrow right -->
+            <div class="next" @click="nextPhoto">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            
+            <div class="nav">
+                <!-- <i class="fas fa-circle active"></i>
+                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle"></i> -->
+
+                <i v-for="(photo, index) in photos" 
+                    class="fas fa-circle"
+                    :class="['fas fa-circle', index == indexPhoto ? 'active' : null]"
+                    @click="setPhoto(index)"
+                >
+                </i>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="./js/main.js"></script>
+
+    <!-- Fine esercizio slider img -->
+</body>
+</html>
