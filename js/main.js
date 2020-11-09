@@ -19,8 +19,8 @@ const app = new Vue({
         intervalId: 0
     },
     created() {
-        console.log('created!');
-
+        // console.log('created!');
+        
         this.startLoop();
     },
     methods: {
