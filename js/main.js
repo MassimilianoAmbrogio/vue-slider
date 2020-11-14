@@ -42,7 +42,6 @@ const app = new Vue({
             console.log(index);
 
             this.indexPhoto = index;
-
         },
         startLoop() {
             this.intervalId = setInterval(() => {
